@@ -1,0 +1,9 @@
+todo : convert supabase datas into const class 
+
+localization 
+
+locator
+
+
+///! 
+delete flutter_staggered_animations: ^1.1.1

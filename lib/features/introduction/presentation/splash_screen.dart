@@ -7,6 +7,7 @@ import 'package:pipeline/configs/consts/text_consts.dart';
 import 'package:pipeline/configs/extensions/custome_extensetion.dart';
 import 'package:pipeline/configs/routings/rountings.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
+import 'package:pipeline/configs/theme/text_styles.dart';
 import 'package:pipeline/core/supabase/supabase.dart';
 import 'package:pipeline/features/introduction/bloc/splash_cubit.dart';
 
@@ -44,8 +45,10 @@ class _SplashScreenState extends State<SplashScreen> {
               child: lodingWidget(),
             ),
             20.0.sizedBoxheightExtention,
+            //! CONNECTION CHECK
             BlocConsumer<SplashCubit, SplashState>(
               listener: (context, state) {
+                //* SUCCESS CONNECTION
                 if (state.connectionStatus is SuccessConnection) {
                   Future.delayed(const Duration(seconds: 3))
                       .then((value) => _navigateToNextPage());
@@ -58,10 +61,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     children: [
                       const Text(
                         TextConsts.noConnection,
-                        style: TextStyle(
-                            color: ColorPallet.maintext,
-                            fontFamily: "dana",
-                            fontWeight: FontWeight.w700),
+                        style: TextStyles.splashConnectionState
                       ),
                       IconButton(
                           onPressed: () {

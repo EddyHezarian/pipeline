@@ -21,13 +21,13 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
 
   @override
   void dispose() {
-    _emailController.dispose();
-    _passController.dispose();
+    emailController.dispose();
+    passController.dispose();
     super.dispose();
   }
 
@@ -74,7 +74,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             isPassword: false,
                             hint: "",
                             iconPath: IconsPath.person,
-                            controller: _emailController)),
+                            controller: emailController)),
                     //! pasword------------------------------------------
                     Positioned(
                         top: 85,
@@ -85,7 +85,7 @@ class _LogInScreenState extends State<LogInScreen> {
                             isPassword: true,
                             hint: "",
                             iconPath: IconsPath.lock,
-                            controller: _passController)),
+                            controller: passController)),
                     //! APPLY BOTTON------------------------------------------
                     Positioned(
                         bottom: 20,
@@ -93,14 +93,13 @@ class _LogInScreenState extends State<LogInScreen> {
                         right: 90,
                         child: MainButton(
                           action: () async {
-                            //! validate datas
-                            //? create a list of params
+                            /* parameter will check then navigate to main wrapper */
+                             
                             List<String> parameters = [
-                              _emailController.text,
-                              _passController.text
+                              emailController.text,
+                              passController.text
                             ];
-                            if (await validateAuthenticationParams(
-                                parameters)) {
+                            if (await _validateAuthenticationParams(parameters)) {
                               if (mounted) {
                                 showSuccessSnackBar(context);
                                 Navigator.pushReplacementNamed(context, Routs.mainWrapper);
@@ -110,10 +109,6 @@ class _LogInScreenState extends State<LogInScreen> {
                                 showFailedSnackBar(context);
                               }
                             }
-
-                            //! show snack bar
-
-                            //! navigate to mainWrapper
                           },
                           title: TextConsts.signInButton,
                         )),
@@ -127,13 +122,13 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 
-  _loginBackGroungContainer() {
+  Widget _loginBackGroungContainer() {
     return Container(
       width: MediaQuery.of(context).size.width * 0.78,
       height: MediaQuery.of(context).size.height * 0.39,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: ColorPallet.dataContainer,
+          color: ColorPallet.actionContainer,
           boxShadow: const [
             BoxShadow(
               spreadRadius: 0,
@@ -146,7 +141,7 @@ class _LogInScreenState extends State<LogInScreen> {
     );
   }
 
-  Future<bool> validateAuthenticationParams(List<String> parameters) async {
+  Future<bool> _validateAuthenticationParams(List<String> parameters) async {
     if (parameters[0].isValidEmail()) {
       bool autResponse = await signInWithPasswordAndEmail(
           email: parameters[0], password: parameters[1], context: context);

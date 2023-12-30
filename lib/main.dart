@@ -49,8 +49,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: ColorPallet.primary),
         useMaterial3: false,
-      ),
-     
+        
+      )
     );
   }
 }

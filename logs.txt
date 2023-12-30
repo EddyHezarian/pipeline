@@ -1,9 +1,7 @@
-todo : convert supabase datas into const class 
-
-localization 
-
-locator
-
-
-///! 
-delete flutter_staggered_animations: ^1.1.1
+day 1: 
+    * create  :  authentication compeleted 
+    ! warnning: codes needs comment and refactoring 
+    ! warnning: review the folder structure 
+    ? note    : need to create authentication document 
+day 2 :
+    

@@ -7,7 +7,13 @@ import 'package:pipeline/features/chart/presentation/chart_screen.dart';
 import 'package:pipeline/features/order_managment/delivered_order/presentation/delivered_order_screen.dart';
 import 'package:pipeline/features/order_managment/open_order/presentation/open_order_screen.dart';
 import 'package:pipeline/features/order_managment/ready_order/ready_order_screen.dart';
+/*  
 
+   main wrapper contains Main Screens 
+    pristentTabView is the widget that is bottomNavigationBar and in 
+    screens property specify the main Screens wich are specefied in the _buildScreens() method
+    other properties are decoration and configuration of bottomNavigationBar 
+*/
 class MainWrapper extends StatelessWidget {
    MainWrapper({
     super.key,
@@ -16,6 +22,7 @@ class MainWrapper extends StatelessWidget {
  
  @override
   Widget build(BuildContext context) {
+
     return PersistentTabView(
       context,
       controller: controller,

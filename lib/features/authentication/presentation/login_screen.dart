@@ -1,7 +1,7 @@
 import 'package:delayed_widget/delayed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:pipeline/configs/components/buttons/main_button.dart';
-import 'package:pipeline/configs/components/long_textfield.dart';
+import 'package:pipeline/configs/components/textfields/long_textfield.dart';
 import 'package:pipeline/configs/components/snack_bars.dart';
 import 'package:pipeline/configs/consts/image_path.dart';
 import 'package:pipeline/configs/consts/text_consts.dart';

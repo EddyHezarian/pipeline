@@ -6,6 +6,7 @@ import 'package:pipeline/configs/consts/database_consts.dart';
 import 'package:pipeline/configs/routings/rountings.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/features/introduction/bloc/splash_cubit.dart';
+import 'package:pipeline/features/locator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
@@ -13,14 +14,15 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   //? initializing supa
   await Supabase.initialize(
-    authFlowType: AuthFlowType.pkce,
-      url: AppConsts.supaBaseURL, anonKey: AppConsts.anonKey);
+      url: AppConsts.supaBaseURL, anonKey: AppConsts.anonKey,authFlowType:AuthFlowType.pkce);
 
   //? define system chrome for whole app
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
-  //?
+  //? locator make instanse of api providers as singleton pattern .
+  await initLocator();
+  //? run app 
   runApp(MultiBlocProvider(providers: [
     BlocProvider(
       create: (context) => SplashCubit(),
@@ -34,23 +36,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('fa'), // farsi
-      ],
-      initialRoute: '/',
-      routes: routs,
-      title: 'MyStore',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: ColorPallet.primary),
-        useMaterial3: false,
-        
-      )
-    );
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('fa'), // farsi
+        ],
+        initialRoute: '/',
+        routes: routs,
+        title: 'Pipeline',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: ColorPallet.primary),
+          useMaterial3: true,
+        ));
   }
 }

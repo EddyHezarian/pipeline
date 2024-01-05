@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/configs/theme/text_styles.dart';
 
-AppBar customeAppBar(){
+AppBar customeMainAppBar(){
  return AppBar(
         toolbarHeight: 100,
         actions: [

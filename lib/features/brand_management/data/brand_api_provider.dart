@@ -16,7 +16,7 @@ class BrandsApiProvider {
           var response = await supabase.from('brand').select();
           data = (response as List).map((e) => BrandModel.fromJson(e)).toList();
         } catch (e) {
-          print(e);
+          debugPrint(e.toString());
         }
       }
     }
@@ -32,7 +32,6 @@ class BrandsApiProvider {
       var response = await supabase.from('brand').select().eq('name', name);
       data = (response as List).map((e) => BrandModel.fromJson(e)).toList();
       data.isEmpty ? isExistAny = false : isExistAny = true;
-      print(data);
     } catch (e) {
       if (e is PostgrestException && e.code == 'PGRST301') {
         try {

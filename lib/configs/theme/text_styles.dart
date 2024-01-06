@@ -7,6 +7,18 @@ class TextStyles {
     fontFamily: "dana",
     fontWeight: FontWeight.w700,
     fontSize: 20,
+  );     
+  static const TextStyle selectedProductType = TextStyle(
+    color: ColorPallet.primary,
+    fontFamily: "dana",
+    fontWeight: FontWeight.w700,
+    fontSize: 14,
+  );     
+  static const TextStyle productType = TextStyle(
+    color: ColorPallet.maintext,
+    fontFamily: "dana",
+    fontWeight: FontWeight.w700,
+    fontSize: 13,
   );   
   static const TextStyle redWarning = TextStyle(
     color: ColorPallet.error,

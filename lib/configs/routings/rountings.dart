@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pipeline/features/authentication/presentation/login_screen.dart';
-import 'package:pipeline/features/brand_settings/presentation/screens/brand_setting_screen.dart';
+import 'package:pipeline/features/brand_management/presentation/screens/brand_setting_screen.dart';
 import 'package:pipeline/features/introduction/presentation/splash_screen.dart';
 import 'package:pipeline/features/main_wrapper.dart';
 

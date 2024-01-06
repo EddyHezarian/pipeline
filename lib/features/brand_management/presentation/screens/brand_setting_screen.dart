@@ -6,9 +6,9 @@ import 'package:pipeline/configs/components/loadings/loading_for_product_brand.d
 import 'package:pipeline/configs/components/snack_bars.dart';
 import 'package:pipeline/configs/consts/text_consts.dart';
 import 'package:pipeline/core/models/brand_model.dart';
-import 'package:pipeline/features/brand_settings/data/brand_api_provider.dart';
-import 'package:pipeline/features/brand_settings/presentation/components/bottome_sheet.dart';
-import 'package:pipeline/features/brand_settings/presentation/components/brand_card.dart';
+import 'package:pipeline/features/brand_management/data/brand_api_provider.dart';
+import 'package:pipeline/features/brand_management/presentation/components/bottome_sheet.dart';
+import 'package:pipeline/features/brand_management/presentation/components/brand_card.dart';
 import 'package:pipeline/features/locator.dart';
 
 class BrandSettingScreen extends StatefulWidget {
@@ -54,7 +54,7 @@ class _BrandSettingScreenState extends State<BrandSettingScreen> {
           )
         ]),
         //! button------------------------------------
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+
         floatingActionButton: customeActionButton(
             title: TextConsts.addBrand,
             action: () {
@@ -97,7 +97,7 @@ class _BrandSettingScreenState extends State<BrandSettingScreen> {
                   var currentDataIndex = snapshot.data![index];
                   return CardForProductAndBrand(
                     isBrand: true,
-                    id: currentDataIndex.cid!,
+                    id: currentDataIndex.id!,
                     title: currentDataIndex.name,
                     longPreesAction: () {
                       openDeleteBrandDialog(

@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/configs/theme/text_styles.dart';
-import 'package:pipeline/features/brand_settings/presentation/screens/brand_setting_screen.dart';
+import 'package:pipeline/features/brand_management/presentation/screens/brand_setting_screen.dart';
+import 'package:pipeline/features/product_management/presentation/screens/products_screen.dart';
 
 class CustomeDrawer extends StatelessWidget {
   const CustomeDrawer({
@@ -28,7 +29,8 @@ class CustomeDrawer extends StatelessWidget {
             title: const Text('برند ها'),
             titleTextStyle: TextStyles.drawerItems,
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>const BrandSettingScreen()));
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (_) => const BrandSettingScreen()));
             },
           ),
           ListTile(
@@ -38,7 +40,8 @@ class CustomeDrawer extends StatelessWidget {
             title: const Text('محصولات'),
             titleTextStyle: TextStyles.drawerItems,
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => const ProductsScreen()));
             },
           ),
           ListTile(

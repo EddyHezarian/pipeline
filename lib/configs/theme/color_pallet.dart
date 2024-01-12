@@ -6,6 +6,7 @@ class ColorPallet {
   static const Color background = Color.fromARGB(255, 245, 245, 245);
 //! theme
   static const Color dataContainer = Color(0xFFD7F4DF);
+  static const Color infoContainer = Color(0xf4F4F4F4);
   static const Color onContainer = Color(0xFF003A02);
   static const Color errorHover = Color.fromARGB(255, 255, 228, 228);
   static const Color error = Color.fromARGB(255, 216, 26, 26);

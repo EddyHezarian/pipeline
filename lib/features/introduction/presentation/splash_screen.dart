@@ -8,7 +8,7 @@ import 'package:pipeline/configs/extensions/custome_extensetion.dart';
 import 'package:pipeline/configs/routings/rountings.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/configs/theme/text_styles.dart';
-import 'package:pipeline/core/supabase/supabase.dart';
+import 'package:pipeline/core/database/supabase/supabase.dart';
 import 'package:pipeline/features/introduction/bloc/splash_cubit.dart';
 
 class SplashScreen extends StatefulWidget {

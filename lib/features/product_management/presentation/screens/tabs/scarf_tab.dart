@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:pipeline/configs/components/appbar/section_title.dart';
 import 'package:pipeline/configs/components/loadings/loading_for_product_brand.dart';
 import 'package:pipeline/configs/components/snack_bars.dart';
-import 'package:pipeline/core/models/product_model.dart';
+
 import 'package:pipeline/features/brand_management/presentation/components/brand_card.dart';
-import 'package:pipeline/features/locator.dart';
-import 'package:pipeline/features/product_management/data/scarf_api_provider.dart';
+import 'package:pipeline/locator.dart';
+import 'package:pipeline/features/product_management/data/models/scarf_model.dart';
+import 'package:pipeline/features/product_management/data/remote/scarf_api_provider.dart';
 import 'package:pipeline/features/product_management/presentation/components/delete_dialog.dart';
 
 class ScarfPartition extends StatefulWidget {

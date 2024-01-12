@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pipeline/configs/components/appbar/app_bar.dart';
 import 'package:pipeline/configs/components/drawer/custome_drawer.dart';
+import 'package:pipeline/configs/consts/text_consts.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 
 class OpenOrderScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _OpenOrderScreenState extends State<OpenOrderScreen> {
         child: Scaffold(
       drawer: const CustomeDrawer(),
       backgroundColor: ColorPallet.background,
-      appBar: customeMainAppBar(),
+      appBar: customeMainAppBar(context: context, title: TextConsts.openOrders),
     ));
   }
 }

@@ -56,8 +56,6 @@ class LongTextfied extends StatelessWidget {
                     iconPath,
                     fit: BoxFit.scaleDown,
                   ),
-
-                  // prefix:SvgPicture.asset("assets/svg/person.svg") ,
                   border: InputBorder.none,
                 ),
               )),

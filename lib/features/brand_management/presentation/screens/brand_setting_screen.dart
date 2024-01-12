@@ -5,11 +5,11 @@ import 'package:pipeline/configs/components/buttons/floating_action_button.dart'
 import 'package:pipeline/configs/components/loadings/loading_for_product_brand.dart';
 import 'package:pipeline/configs/components/snack_bars.dart';
 import 'package:pipeline/configs/consts/text_consts.dart';
-import 'package:pipeline/core/models/brand_model.dart';
-import 'package:pipeline/features/brand_management/data/brand_api_provider.dart';
+import 'package:pipeline/features/brand_management/data/model/brand_model.dart';
+import 'package:pipeline/features/brand_management/data/remote/brand_api_provider.dart';
 import 'package:pipeline/features/brand_management/presentation/components/bottome_sheet.dart';
 import 'package:pipeline/features/brand_management/presentation/components/brand_card.dart';
-import 'package:pipeline/features/locator.dart';
+import 'package:pipeline/locator.dart';
 
 class BrandSettingScreen extends StatefulWidget {
   const BrandSettingScreen({super.key});
@@ -38,8 +38,8 @@ class _BrandSettingScreenState extends State<BrandSettingScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: appBarForScreensInDrawer(
-            title: TextConsts.brandsAppBar, context: context),
+        appBar:
+            secondaryAppBar(title: TextConsts.brandsAppBar, context: context),
         body: Column(children: [
           //! title----------------------------------
           const Padding(

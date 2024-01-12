@@ -2,8 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pipeline/configs/theme/text_styles.dart';
 
-AppBar appBarForScreensInDrawer(
-    {required String title, required BuildContext context}) {
+AppBar secondaryAppBar({required String title, required BuildContext context}) {
   return AppBar(
     automaticallyImplyLeading: false,
     leading: IconButton(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pipeline/core/supabase/supabase.dart';
+import 'package:pipeline/core/database/supabase/supabase.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<bool> signInWithPasswordAndEmail(

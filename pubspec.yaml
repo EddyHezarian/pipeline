@@ -49,10 +49,15 @@ dependencies:
   persistent_bottom_nav_bar: ^5.0.2
   get_it: ^7.6.4
   shimmer: ^3.0.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  persian_number_utility: ^1.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.7
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

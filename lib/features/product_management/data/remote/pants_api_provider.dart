@@ -1,21 +1,25 @@
-
 import 'package:flutter/material.dart';
-import 'package:pipeline/core/models/product_model.dart';
-import 'package:pipeline/core/supabase/supabase.dart';
+import 'package:pipeline/core/database/supabase/supabase.dart';
+import 'package:pipeline/features/product_management/data/local/pants_local_db_controller.dart';
+import 'package:pipeline/features/product_management/data/models/pants_model.dart';
+
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class PantsApiProvider {
+  PantsLocalDbController hiveController = PantsLocalDbController();
   Future<List<PantsModel>> getPants() async {
     List<PantsModel> data = [];
     try {
       var response = await supabase.from('pants').select();
       data = (response as List).map((e) => PantsModel.fromJson(e)).toList();
+      hiveController.insertPantsIfNotExist(data);
     } catch (e) {
       if (e is PostgrestException && e.code == 'PGRST301') {
         try {
           await supabase.auth.refreshSession();
           var response = await supabase.from('pants').select();
           data = (response as List).map((e) => PantsModel.fromJson(e)).toList();
+          hiveController.insertPantsIfNotExist(data);
         } catch (e) {
           debugPrint(e.toString());
         }
@@ -37,8 +41,7 @@ class PantsApiProvider {
       if (e is PostgrestException && e.code == 'PGRST301') {
         try {
           await supabase.auth.refreshSession();
-          var response =
-              await supabase.from('pants').select().eq('size', name);
+          var response = await supabase.from('pants').select().eq('size', name);
           data = (response as List).map((e) => PantsModel.fromJson(e)).toList();
           data.isEmpty ? isExistAny = false : isExistAny = true;
         } catch (e) {
@@ -63,9 +66,10 @@ class PantsApiProvider {
       }
     }
   }
+
   Future<void> deletePants({required String name}) async {
     try {
-       await supabase.from('pants').delete().eq('size', name);
+      await supabase.from('pants').delete().eq('size', name);
     } catch (e) {
       debugPrint(e.toString());
     }

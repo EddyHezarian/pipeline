@@ -8,6 +8,7 @@ import 'package:pipeline/configs/routings/rountings.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/features/brand_management/data/model/brand_model.dart';
 import 'package:pipeline/features/introduction/bloc/splash_cubit.dart';
+import 'package:pipeline/features/order_managment/repository/blocs/cubit/order_cubit.dart';
 import 'package:pipeline/locator.dart';
 import 'package:pipeline/features/product_management/data/models/pants_model.dart';
 import 'package:pipeline/features/product_management/data/models/scarf_model.dart';
@@ -32,7 +33,7 @@ Future<void> main() async {
   await initLocator();
   //? initialzing hive local data base for products and brands : see the docs for more details
   await Hive.initFlutter();
-  //? initializ brand model adaptor for hive
+  //? initializ  model adaptor for hive
   Hive.registerAdapter(BrandModelAdapter());
   Hive.registerAdapter(PantsModelAdapter());
   Hive.registerAdapter(ShirtModelAdapter());
@@ -41,6 +42,9 @@ Future<void> main() async {
   runApp(MultiBlocProvider(providers: [
     BlocProvider(
       create: (context) => SplashCubit(),
+    ), 
+    BlocProvider(
+      create: (context) => OrderCubit(locator()),
     ),
     BlocProvider(
       create: (context) => ProductTypeCubit(),

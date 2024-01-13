@@ -20,7 +20,7 @@ class OrderApiProvider {
           await supabase.from('Orders').upsert(order.toMap());
           if (context.mounted) {
             showSuccessSnackBar(context);
-             Navigator.pop(context);
+            Navigator.pop(context);
           }
         } catch (e) {
           if (context.mounted) {
@@ -28,9 +28,33 @@ class OrderApiProvider {
           }
           debugPrint(e.toString());
         }
-      } else {
-        print(e.toString());
       }
     }
+  }
+
+  Future<List<OrderModel>> getOrders(
+      {required String brandName, required String status}) async {
+    List<OrderModel> data = [];
+    try {
+      var response = await supabase
+          .from('Orders')
+          .select()
+          .match({'brand_name': brandName, 'status': status});
+      data = (response as List).map((e) => OrderModel.fromJson(e)).toList();
+    } catch (error) {
+      if (error is PostgrestException && error.code == 'PGRST301') {
+        try {
+          await supabase.auth.refreshSession();
+          var response = await supabase
+              .from('Orders')
+              .select()
+              .match({'brand_name': brandName, 'status': status});
+          data = (response as List).map((e) => OrderModel.fromJson(e)).toList();
+        } catch (error) {
+          debugPrint(error.toString());
+        }
+      } 
+    }
+    return data;
   }
 }

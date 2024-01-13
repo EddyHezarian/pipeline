@@ -78,7 +78,7 @@ class OrderModel {
         purchase: json['purchase'],
         status: json['status'],
         description: json['description'],
-        createdAt: json['date'],
+        createdAt: DateTime.parse(json['date']),
         shirtSize: json['shirt'],
         shirtQTY: json['shirtQTY'],
         pantsSize: json['pants'],

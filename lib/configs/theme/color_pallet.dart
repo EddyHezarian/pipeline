@@ -20,5 +20,6 @@ class ColorPallet {
   static const Color maintext = Color.fromARGB(255, 41, 41, 41);
   static const Color subtext = Color(0xFF828282);
   static const Color detailText = Color(0xFF003A02);
+  static const Color deliveredBlue =Color.fromARGB(255, 0, 126, 155);
   static const Color lightText = Color.fromARGB(255, 243, 243, 243);
 }

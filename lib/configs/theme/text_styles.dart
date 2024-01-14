@@ -90,5 +90,68 @@ class TextStyles {
       fontFamily: "dana",
       fontSize: 16,
       fontWeight: FontWeight.w700,
+      color: ColorPallet.subtext);  
+      //! order cart 
+      static const TextStyle secondaryDataOrderCart = TextStyle(
+      fontFamily: "dana",
+      fontSize: 13,
+      fontWeight: FontWeight.w700,
+      color: ColorPallet.primary);   
+           
+    static const TextStyle nameOrderCard = TextStyle(
+      fontFamily: "dana",
+      fontSize: 17,
+      fontWeight: FontWeight.w700,
+      color: ColorPallet.maintext);   
+               
+      static const TextStyle littleDataOrderCart = TextStyle(
+      fontFamily: "dana",
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: ColorPallet.maintext);   
+         
+      static const TextStyle toman = TextStyle(
+      fontFamily: "dana",
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      color: ColorPallet.maintext);
+    static const TextStyle cartDetailsParameter = TextStyle(
+      fontFamily: "dana",
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: ColorPallet.subtext);    
+      static const TextStyle cartDetailsParameter2 = TextStyle(
+      fontFamily: "dana",
+      fontSize: 10,
+      fontWeight: FontWeight.w700,
       color: ColorPallet.subtext);
+
+    static const TextStyle cartDetailsvalue = TextStyle(
+      fontFamily: "dana",
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+      color: ColorPallet.maintext);
+
+
+
+      static const openOrderStatuts = TextStyle(
+      fontFamily: "dana",
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      color: ColorPallet.error);   
+      static const deliveredOrderStatus = TextStyle(
+      fontFamily: "dana",
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      color: ColorPallet.deliveredBlue);   
+      static const readyOrderStatus = TextStyle(
+      fontFamily: "dana",
+      fontSize: 10,
+      fontWeight: FontWeight.w500,
+      color: ColorPallet.primary);   
+         
+
+
+
+
 }

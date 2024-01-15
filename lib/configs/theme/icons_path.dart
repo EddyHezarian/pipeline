@@ -14,5 +14,8 @@ class IconsPath {
   static const String readyOrder = "assets/svg/ready_order.svg";
   static const String search = "assets/svg/search.svg";
   static const String setting= "assets/svg/setting.svg";
-  static const String empty= "assets/svg/empty_state.svg";
+  static const String empty= "assets/svg/nobrand.svg";
+  static const String noOrder= "assets/svg/noorder.svg";
+  static const String emptySearch= "assets/svg/noresult.svg";
+  static const String noConeection= "assets/svg/empty_statae.svg";
 }

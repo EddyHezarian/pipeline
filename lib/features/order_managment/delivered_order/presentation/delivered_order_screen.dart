@@ -119,7 +119,7 @@ class _DeliveredOrderScreenState extends State<DeliveredOrderScreen> {
       children: [
         SvgPicture.asset(IconsPath.noOrder),
         const Text(
-          "هنوز سفارشی برای این برند ثبت نشده",
+          "هنوز سفارشی برای این برند تحویل نشده",
           style: TextStyle(
               fontFamily: "dana",
               fontSize: 18,

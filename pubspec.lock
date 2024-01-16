@@ -275,6 +275,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_sms:
+    dependency: "direct main"
+    description:
+      path: "/Users/eddy/Downloads/flutter_sms-master"
+      relative: false
+    source: path
+    version: "2.3.3"
   flutter_svg:
     dependency: "direct main"
     description:

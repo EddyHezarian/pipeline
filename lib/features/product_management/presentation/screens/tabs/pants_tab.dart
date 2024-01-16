@@ -35,7 +35,7 @@ class _PantsPartitionState extends State<PantsPartition> {
     );
   }
 
-  FutureBuilder<List<PantsModel>> _loadAndShowPants() {
+  _loadAndShowPants() {
     return FutureBuilder(
         future: apiProvider.getPants(),
         builder: (context, AsyncSnapshot<List<PantsModel>> snapshot) {

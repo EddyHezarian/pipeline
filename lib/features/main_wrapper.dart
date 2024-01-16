@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/configs/theme/text_styles.dart';
@@ -7,6 +8,8 @@ import 'package:pipeline/features/chart/presentation/chart_screen.dart';
 import 'package:pipeline/features/order_managment/delivered_order/presentation/delivered_order_screen.dart';
 import 'package:pipeline/features/order_managment/open_order/presentation/open_order_screen.dart';
 import 'package:pipeline/features/order_managment/ready_order/ready_order_screen.dart';
+import 'package:pipeline/features/order_managment/repository/blocs/cubit/order_cubit.dart';
+
 /*  
 
    main wrapper contains Main Screens 
@@ -15,19 +18,22 @@ import 'package:pipeline/features/order_managment/ready_order/ready_order_screen
     other properties are decoration and configuration of bottomNavigationBar 
 */
 class MainWrapper extends StatelessWidget {
-   MainWrapper({
+  MainWrapper({
     super.key,
   });
-  final PersistentTabController controller =PersistentTabController(initialIndex: 0);
- 
- @override
-  Widget build(BuildContext context) {
+  final PersistentTabController controller =
+      PersistentTabController(initialIndex: 0);
 
+  @override
+  Widget build(BuildContext context) {
     return PersistentTabView(
       context,
+      onItemSelected: (value) {
+        BlocProvider.of<OrderCubit>(context).refresh();
+      },
       controller: controller,
       screens: _buildScreens(),
-      items: _navBarsItems(),
+      items: _navBarsItems(context),
       confineInSafeArea: true,
       backgroundColor: ColorPallet.actionContainer, // Default is Colors.white.
       handleAndroidBackButtonPress: true, // Default is true.
@@ -60,30 +66,36 @@ class MainWrapper extends StatelessWidget {
 }
 
 List<Widget> _buildScreens() {
-  return [const OpenOrderScreen(),const ReadyOrderScreen(),const DeliveredOrderScreen(), const ChartScreeen(),];
+  return [
+    const OpenOrderScreen(),
+    const ReadyOrderScreen(),
+    const DeliveredOrderScreen(),
+    const ChartScreeen(),
+  ];
 }
 
-List<PersistentBottomNavBarItem> _navBarsItems() {
+List<PersistentBottomNavBarItem> _navBarsItems(BuildContext context) {
   return [
-
     PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.rectangle_fill_on_rectangle_fill),
       title: (" سفارش‌ها"),
       textStyle: TextStyles.bottomNavItems,
       activeColorPrimary: ColorPallet.primary,
       inactiveColorPrimary: const Color.fromARGB(255, 93, 93, 93),
-    ),    PersistentBottomNavBarItem(
+    ),
+    PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.checkmark_rectangle_fill),
       title: (" آماده‌ها"),
       textStyle: TextStyles.bottomNavItems,
       activeColorPrimary: ColorPallet.primary,
       inactiveColorPrimary: const Color.fromARGB(255, 93, 93, 93),
-    ),    PersistentBottomNavBarItem(
+    ),
+    PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.cube_fill),
       title: (" تحویل‌َها"),
       textStyle: TextStyles.bottomNavItems,
       activeColorPrimary: ColorPallet.primary,
-      inactiveColorPrimary:  const Color.fromARGB(255, 93, 93, 93),
+      inactiveColorPrimary: const Color.fromARGB(255, 93, 93, 93),
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.chart_bar_fill),

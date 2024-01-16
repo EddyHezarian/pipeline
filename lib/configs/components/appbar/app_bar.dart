@@ -5,7 +5,7 @@ import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/configs/theme/text_styles.dart';
 
 AppBar customeMainAppBar(
-    {required BuildContext context, required String title}) {
+    {required BuildContext context, required String title ,bool isTabView=false ,List<Widget>?tabItemList }) {
   return AppBar(
     toolbarHeight: 100,
     actions: [
@@ -29,5 +29,9 @@ AppBar customeMainAppBar(
     elevation: 0,
     backgroundColor: ColorPallet.background,
     title: Text(title),
+    bottom:  isTabView ? TabBar(labelStyle: TextStyles.bottomNavItems, tabs: tabItemList!):null,
   );
+
 }
+
+

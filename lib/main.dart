@@ -7,6 +7,7 @@ import 'package:pipeline/configs/consts/database_consts.dart';
 import 'package:pipeline/configs/routings/rountings.dart';
 import 'package:pipeline/configs/theme/color_pallet.dart';
 import 'package:pipeline/features/brand_management/data/model/brand_model.dart';
+import 'package:pipeline/features/chart/repository/blocs/chart_cubit.dart';
 import 'package:pipeline/features/introduction/bloc/splash_cubit.dart';
 import 'package:pipeline/features/order_managment/repository/blocs/cubit/order_cubit.dart';
 import 'package:pipeline/locator.dart';
@@ -45,6 +46,9 @@ Future<void> main() async {
     ), 
     BlocProvider(
       create: (context) => OrderCubit(locator()),
+    ),
+    BlocProvider(
+      create: (context) => CahrtCubit(locator()),
     ),
     BlocProvider(
       create: (context) => ProductTypeCubit(),

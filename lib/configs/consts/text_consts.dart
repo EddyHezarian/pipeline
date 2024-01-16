@@ -2,6 +2,7 @@ class TextConsts {
   static const String noConnection = "به اینترنت متصل نیستید";
   static const String productManagment = "مدیریت محصولات";  
   static const String readyOrders = "سفارشات آماده";
+  static const String chart = "آمارگیری";
   static const String deliveredOrders = "سفارشات تحویلی";
   static const String loginWelcoming = "ورود به حساب کاربری";
   static const String enterEmail = "ایمیل خود را وارد کنید";

@@ -52,6 +52,8 @@ dependencies:
   hive_flutter: ^1.1.0
   persian_number_utility: ^1.1.4
   intl: ^0.18.1
+  flutter_sms: 
+    path: /Users/eddy/Downloads/flutter_sms-master
 
 dev_dependencies:
   flutter_test:

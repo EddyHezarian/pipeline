@@ -34,8 +34,7 @@ class _ShirtPartitionState extends State<ShirtPartition> {
       ],
     );
   }
-
-  FutureBuilder<List<ShirtModel>> _loadAndShowShits() {
+_loadAndShowShits() {
     return FutureBuilder(
         future: apiProvider.getShirts(),
         builder: (context, AsyncSnapshot<List<ShirtModel>> snapshot) {

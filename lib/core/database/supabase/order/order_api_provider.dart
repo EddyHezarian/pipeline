@@ -53,8 +53,46 @@ class OrderApiProvider {
         } catch (error) {
           debugPrint(error.toString());
         }
-      } 
+      }
     }
     return data;
+  }
+
+  Future<bool> deleteOrder(OrderModel model) async {
+    bool isSuccessfulDelete = true;
+    try {
+      await supabase.from('Orders').delete().eq('id', model.id);
+    } catch (error) {
+      if (error is PostgrestException && error.code == 'PGRST301') {
+        try {
+          await supabase.from('Orders').delete().eq('id', model.id);
+        } catch (e) {
+          isSuccessfulDelete = false;
+        }
+      }
+    }
+
+    return isSuccessfulDelete;
+  }
+
+  Future<bool> updateOrder(OrderModel model, String status) async {
+    bool isSuccessfulUpdate = true;
+    try {
+      await supabase
+          .from('Orders')
+          .update({'status': status}).match({'id': model.id});
+    } catch (error) {
+      if (error is PostgrestException && error.code == 'PGRST301') {
+        try {
+          await supabase
+              .from('Orders')
+              .update({'id': model.id}).eq('status', status);
+        } catch (e) {
+          isSuccessfulUpdate = false;
+        }
+      }
+    }
+
+    return isSuccessfulUpdate;
   }
 }

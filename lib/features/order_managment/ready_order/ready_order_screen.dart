@@ -119,7 +119,7 @@ class _ReadyOrderScreenState extends State<ReadyOrderScreen> {
       children: [
         SvgPicture.asset(IconsPath.noOrder),
         const Text(
-          "هنوز سفارشی برای این برند ثبت نشده",
+          "هنوز سفارشی برای این برند آماده نشده",
           style: TextStyle(
               fontFamily: "dana",
               fontSize: 18,

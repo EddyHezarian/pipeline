@@ -58,6 +58,28 @@ class OrderApiProvider {
     return data;
   }
 
+  Future<List<OrderModel>> searchByName({required String customerName}) async {
+    List<OrderModel> data = [];
+    try {
+      var response = await supabase.from('Orders').select().ilikeAnyOf('name',['%$customerName%']);
+      data = (response as List).map((e) => OrderModel.fromJson(e)).toList();
+    } catch (error) {
+      if (error is PostgrestException && error.code == 'PGRST301') {
+        try {
+          await supabase.auth.refreshSession();
+          var response = await supabase
+              .from('Orders')
+              .select()
+              .ilikeAnyOf('name',['%$customerName%']);
+          data = (response as List).map((e) => OrderModel.fromJson(e)).toList();
+        } catch (error) {
+          debugPrint(error.toString());
+        }
+      }
+    }
+    return data;
+  }
+
   Future<bool> deleteOrder(OrderModel model) async {
     bool isSuccessfulDelete = true;
     try {

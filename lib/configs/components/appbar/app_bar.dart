@@ -17,9 +17,13 @@ AppBar customeMainAppBar(
         tooltip: "سفارش جدید",
       ),
       IconButton(
-        onPressed: () {},
+        onPressed: () {
+           Navigator.of(context,rootNavigator: true).pushNamed( Routs.searchPage,);
+
+        },
         icon: const Icon(CupertinoIcons.search),
         tooltip: "جستجوی نام",
+        
       ),
     ],
     iconTheme: const IconThemeData(

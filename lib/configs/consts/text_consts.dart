@@ -15,6 +15,7 @@ class TextConsts {
   static const String addProduct = "افزودن محصول";
   static const String addBrandName = " نام برند را وارد کنید";
   static const String deleteBrand = "حذف برند ";
+  static const String searchforname = "در حال جستوجوی سفارش";
   static const String loadingProducts = "در حال بارگیری سفارش ها";
   static const String deleteProduct= "حذف محصول ";
   //? add order screen

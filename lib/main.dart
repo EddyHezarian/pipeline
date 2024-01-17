@@ -10,6 +10,7 @@ import 'package:pipeline/features/brand_management/data/model/brand_model.dart';
 import 'package:pipeline/features/chart/repository/blocs/chart_cubit.dart';
 import 'package:pipeline/features/introduction/bloc/splash_cubit.dart';
 import 'package:pipeline/features/order_managment/repository/blocs/cubit/order_cubit.dart';
+import 'package:pipeline/features/search_feature/repository/bloc/search_cubit.dart';
 import 'package:pipeline/locator.dart';
 import 'package:pipeline/features/product_management/data/models/pants_model.dart';
 import 'package:pipeline/features/product_management/data/models/scarf_model.dart';
@@ -49,6 +50,8 @@ Future<void> main() async {
     ),
     BlocProvider(
       create: (context) => CahrtCubit(locator()),
+    ),BlocProvider(
+      create: (context) => SearchCubit(locator()),
     ),
     BlocProvider(
       create: (context) => ProductTypeCubit(),

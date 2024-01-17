@@ -4,7 +4,6 @@ part of 'order_cubit.dart';
 sealed class OrderState {}
 
 final class LoadingOrdersState extends OrderState {
-
 }
 
 final class FetchedOrdersState extends OrderState {
